@@ -1,4 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+    <!--Create a Wordle game, where the user has 6 guesses to guess the correct word from a list of 3000 5 letter words-->
+    <!-- Have a settings page, a place where they can enter the username, a timesztamp for when they finish the guess-->
+    <!-- Tell the user when theyve got a letter correct, and if it's in the correct place-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wordle.MainPage">
