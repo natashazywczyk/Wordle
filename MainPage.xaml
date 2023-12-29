@@ -13,8 +13,8 @@
              x:Class="Wordle.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-           
+        <VerticalStackLayout>
+
 
         </VerticalStackLayout>
     </ScrollView>
