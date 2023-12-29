@@ -96,6 +96,12 @@
         {
             InitialiseGrid();
 
+            timer.Start();
+
+            run = true;
+
+            timer_lbl.Text = countdown.ToString();
+
         }
 
     }
