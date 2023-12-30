@@ -39,8 +39,10 @@
                     BoxView box1 = new BoxView()
                     {
                         CornerRadius = 5,
-                        Color = Color.FromRgb(20, 200, 20)
+                        Color = Color.FromRgb(231, 201, 255)
                     };
+
+                    wordleGrid.Add(box1, j, i);
                 }
             }
         }

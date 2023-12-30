@@ -25,6 +25,11 @@
                 <Label x:Name="timer_lbl" Text="60 " FontSize="30"/>
 
             </HorizontalStackLayout>
+
+            <Grid x:Name="wordleGrid" WidthRequest="300" HeightRequest="300"
+                  Background="#ead4fc" IsVisible="True" IsEnabled="True"
+                  RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*">
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 
