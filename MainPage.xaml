@@ -26,17 +26,17 @@
 
             </HorizontalStackLayout>
 
-            <Grid x:Name="wordleGrid1" WidthRequest="300" HeightRequest="100"
+            <Grid x:Name="wordleGrid1" WidthRequest="600" HeightRequest="90"
                   Background="#ead4fc" IsVisible="True" IsEnabled="True"
                   RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
             </Grid>
 
-            <Grid x:Name="wordleGrid2" WidthRequest="300" HeightRequest="100"
+            <Grid x:Name="wordleGrid2" WidthRequest="600" HeightRequest="90"
                   Background="#ead4fc" IsVisible="True" IsEnabled="True"
                   RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
             </Grid>
 
-            <Grid x:Name="wordleGrid3" WidthRequest="300" HeightRequest="100"
+            <Grid x:Name="wordleGrid3" WidthRequest="600" HeightRequest="90"
                   Background="#ead4fc" IsVisible="True" IsEnabled="True"
                   RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
             </Grid>
