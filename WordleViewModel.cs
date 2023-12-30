@@ -10,5 +10,6 @@ public class WordleViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
+    WordleViewModel wordleModel;
 }
 
