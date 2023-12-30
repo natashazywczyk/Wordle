@@ -29,20 +29,60 @@
             }
 
         }
-        private void InitialiseGrid()
+        private void InitialiseGrid1()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 1; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
 
                     BoxView box1 = new BoxView()
                     {
-                        CornerRadius = 5,
-                        Color = Color.FromRgb(231, 201, 255)
+                        CornerRadius = 6,
+                        Color = Color.FromRgb(255, 255, 0)
                     };
 
-                    wordleGrid.Add(box1, j, i);
+                    wordleGrid1.Add(box1, j, i);
+
+                }
+            }
+        }
+
+
+        private void InitialiseGrid2()
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+
+                    BoxView box2 = new BoxView()
+                    {
+                        CornerRadius = 5,
+                        Color = Color.FromRgb(255, 0, 255)
+                    };
+
+                    wordleGrid2.Add(box2, j, i);
+
+                }
+            }
+        }
+
+        private void InitialiseGrid3()
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+
+                    BoxView box3 = new BoxView()
+                    {
+                        CornerRadius = 5,
+                        Color = Color.FromRgb(0, 255, 255)
+                    };
+
+                    wordleGrid3.Add(box3, j, i);
+
                 }
             }
         }
@@ -89,7 +129,9 @@
 
         private void WordleStart()
         {
-            InitialiseGrid();
+            InitialiseGrid1();
+            InitialiseGrid2();
+            InitialiseGrid3();
 
             timer.Start();
 

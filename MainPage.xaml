@@ -26,10 +26,21 @@
 
             </HorizontalStackLayout>
 
-            <Grid x:Name="wordleGrid" WidthRequest="300" HeightRequest="300"
+            <Grid x:Name="wordleGrid1" WidthRequest="300" HeightRequest="100"
                   Background="#ead4fc" IsVisible="True" IsEnabled="True"
-                  RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*">
+                  RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
             </Grid>
+
+            <Grid x:Name="wordleGrid2" WidthRequest="300" HeightRequest="100"
+                  Background="#ead4fc" IsVisible="True" IsEnabled="True"
+                  RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
+            </Grid>
+
+            <Grid x:Name="wordleGrid3" WidthRequest="300" HeightRequest="100"
+                  Background="#ead4fc" IsVisible="True" IsEnabled="True"
+                  RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
+            </Grid>
+
         </VerticalStackLayout>
     </ScrollView>
 
