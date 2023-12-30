@@ -21,19 +21,12 @@
             StartBtn.Opacity = 1;
             await StartBtn.FadeTo(0, 1000);
 
-            //if (!run)
-            // {
-            //    MoleStart();
-            // }
-            //  else
-            // {
             bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
 
             if (choice)
             {
                 WordleStart();
             }
-            //}
 
         }
         private void InitialiseGrid()
