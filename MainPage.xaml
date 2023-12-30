@@ -15,7 +15,7 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#062F9D" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
 
             <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
