@@ -24,23 +24,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-    public bool IsBusy
-    {
-        get => isBusy;
-        set
-        {
-            if (isBusy == value)
-                return;
-            isBusy = value;
-            OnPropertyChanged();
-            OnPropertyChanged(nameof(IsNotBusy));
-
-        }
-    }
-
-
-    private bool IsNotBusy => !IsBusy;
-
 
     public bool IsBusy
     {
@@ -95,6 +78,16 @@ public partial class WordleViewModel : INotifyPropertyChanged
         }
 
         var response = await httpClient.GetAsync("https://raw.githubusercontent.com/DonH-ITS/jsonfiles/main/words.txt");
+
+        if (response.IsSuccessStatusCode)
+        {
+            string contents = await response.Content.ReadAsStringAsync();
+            wordList = JsonSerializer.Deserialize<List<Word>>(contents);
+
+            //return await response.Content.ReadAsStringAsync();
+        }
+
+        return;
     }
 }
 
