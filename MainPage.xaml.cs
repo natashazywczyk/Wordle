@@ -7,6 +7,7 @@ namespace Wordle
 {
     public partial class MainPage : ContentPage
     {
+        WordleViewModel viewModel;
         Random random;
         private int interval = 1000;
         private int countdown = 60;
@@ -17,6 +18,8 @@ namespace Wordle
         public MainPage()
         {
             InitializeComponent();
+            viewModel = new WordleViewModel();
+            BindingContext = viewModel;
 
             SetUpTimers();
         }

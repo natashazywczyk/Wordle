@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Wordle
 {
 
-    public class RowLetters
+    public class Word
     {
-        public Answer[] Answers { get; set; }
+        public Letters[] Letter { get; set; }
     }
 
-    public partial class Answer
+    public partial class Letters
     {
         private char userInput;
 
