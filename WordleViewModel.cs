@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 namespace Wordle;
 public partial class WordleViewModel : INotifyPropertyChanged
 {
+    //PropertyChanged event declaration
     public event PropertyChangedEventHandler PropertyChanged;
 
+
+    //Variables
     WordleViewModel wordleModel;
     HttpClient httpClient;
     List<Word> wordList;
@@ -19,11 +22,13 @@ public partial class WordleViewModel : INotifyPropertyChanged
     private int rowNum;
     private int colNum;
 
+    //PropertyChanged method
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
+    //IsBusy method to check whether or not the program is busy
     public bool IsBusy
     {
         get => isBusy;
@@ -46,6 +51,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
         wordList = new();
     }
 
+    //RowLetters.cs referenced
     private Word[] rows
     {
         get => rows;
@@ -63,6 +69,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
         
     }
 
+    //If enter is pressed, to run this method
     public void EnterPressed()
     {
         if (colNum != 5)
@@ -70,6 +77,8 @@ public partial class WordleViewModel : INotifyPropertyChanged
      
         var allowed = true;
 
+        //if they reach 6 rows, they,ve failed
+        //If they are at row < 6, continue to move down a row
         if (allowed)
         {
             if (rowNum == 5)
@@ -86,12 +95,14 @@ public partial class WordleViewModel : INotifyPropertyChanged
 
     }
 
+    //Method to check letters they've entered
     public void LetterEntered(char letter)
     {
         if (colNum == 5)
             return;
     }
 
+    //Read the .json file for words
     private async Task GetWords()
     {
         if (wordList.Count > 0)
