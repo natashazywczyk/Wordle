@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AndroidX.Lifecycle;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -24,7 +25,7 @@ namespace Wordle
             SetUpTimers();
         }
 
-        public async void StartBtn_Clicked(object sender, EventArgs e)
+       /*ublic async void StartBtn_Clicked(object sender, EventArgs e)
         {
             StartBtn.Opacity = 1;
             await StartBtn.FadeTo(0, 1000);
@@ -93,7 +94,7 @@ namespace Wordle
 
                 }
             }
-        }
+        }*/
 
         private void SetUpTimers()
         {
@@ -109,7 +110,7 @@ namespace Wordle
         private void TimerFunction()
         {
             --countdown;
-            timer_lbl.Text = countdown.ToString();
+           // timer_lbl.Text = countdown.ToString();
 
             if (countdown <= 0)
             {
