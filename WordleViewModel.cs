@@ -1,5 +1,4 @@
-﻿using IntelliJ.Lang.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -38,7 +37,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
 
         }
     }
-
     public bool IsNotBusy => !isBusy;
 
 
