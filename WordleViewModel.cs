@@ -11,5 +11,11 @@ public class WordleViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
 
     WordleViewModel wordleModel;
+
+
+    public void check(char[] answer)
+    {
+        
+    }
 }
 
