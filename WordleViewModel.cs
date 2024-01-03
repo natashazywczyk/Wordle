@@ -42,6 +42,23 @@ public partial class WordleViewModel : INotifyPropertyChanged
     private bool IsNotBusy => !IsBusy;
 
 
+    public bool IsBusy
+    {
+        get => isBusy;
+        set
+        {
+            if (isBusy == value)
+                return;
+            isBusy = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsNotBusy));
+
+        }
+    }
+
+    public bool IsNotBusy => !isBusy;
+
+
     public WordleViewModel()
     {
         httpClient = new HttpClient();
