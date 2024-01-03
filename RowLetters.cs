@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,20 +11,33 @@ namespace Wordle
     public class WordGuess
     {
         public Letters[] Letter { get; set; }
+
+        public void checkLetters(char[] correctAnswer)
+        {
+
+        }
     }
 
-    public partial class Letters
+    public partial class Letters : INotifyPropertyChanged
     {
-        char letter;
-        public char userInput
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private char userInput;
+        public char UserInput
         {
-            get => letter;
+            get => userInput;
             set
             {
-                if (letter == value)
-                    return;
-                letter = value;
+                if (userInput != value)
+                {
+                    userInput = value;
+                    OnPropertyChanged(nameof(UserInput));
+                }
             }
+        }
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private Color colour;

@@ -37,28 +37,32 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <Grid RowDefinitions="*, Auto">
+        <VerticalStackLayout>
+            <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
             
-            <!--Enter Space-->
-            <VerticalStackLayout
-                BindableLayout.ItemsSource="{Binding Rows}">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate x:DataType="model:WordGuess">
-                       <HorizontalStackLayout
-                           BindableLayout.ItemsSource="{Binding Letter}">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate x:DataType="model:Letters">
-                                    <Button Style="{DynamicResource LetterSpace}"
-                                            Text="{Binding userInput}"/>
+            <Grid RowDefinitions="*, Auto">
 
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                       </HorizontalStackLayout>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-                
-            </VerticalStackLayout>
-        </Grid>
+                <!--Enter Space-->
+                <CollectionView
+                ItemsSource="{Binding Rows}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:WordGuess">
+                            <HorizontalStackLayout
+                           BindableLayout.ItemsSource="{Binding Letter}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="model:Letters">
+                                        <Button Style="{DynamicResource LetterSpace}"
+                                            Text="{Binding UserInput}"/>
+
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+            </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 
     <!--<Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />

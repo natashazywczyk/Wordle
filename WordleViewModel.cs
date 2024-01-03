@@ -72,7 +72,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
         get => rows;
         set
         {
-            if(rows ==  value) 
+            if(rows == value) 
                 return;
             rows = value;   
             OnPropertyChanged();
