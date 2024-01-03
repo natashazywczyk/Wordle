@@ -63,6 +63,26 @@ public partial class WordleViewModel : INotifyPropertyChanged
         
     }
 
+    public void EnterSpace()
+    {
+        var allowed = true;
+
+        if (allowed)
+        {
+            if (rowNum == 5)
+            {
+                //end turn
+            }
+            else
+            {
+                rowNum++;
+                colNum = 0;
+            }
+
+        }
+
+    }
+
     public void LetterEnter(char letter)
     {
 
