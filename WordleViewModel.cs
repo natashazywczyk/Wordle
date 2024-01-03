@@ -111,6 +111,13 @@ public partial class WordleViewModel : INotifyPropertyChanged
 
         var response = await httpClient.GetAsync("https://raw.githubusercontent.com/DonH-ITS/jsonfiles/main/words.txt");
 
+        /*to change words in json file to char array
+        for(int i = 0; i < 3000; i++)
+        {
+            ... = ... .ToCharArray();
+        }
+        */
+
         if (response.IsSuccessStatusCode)
         {
             string contents = await response.Content.ReadAsStringAsync();

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
     
-    <!--Create a Wordle game, where the user has 6 guesses to guess the correct word from a list of 3000 5 letter words, have it select it randomly-->
+    <!-- Create a Wordle game, where the user has 6 guesses to guess the correct word from a list of 3000 5 letter words, have it select it randomly-->
     <!-- Have a settings page, a place where they can enter the username, a timestamp for when they finish the guess-->
     <!-- Tell the user when theyve got a letter correct, and if it's in the correct place-->
     <!-- Allow them to start a new game, display a record board of previous games-->
