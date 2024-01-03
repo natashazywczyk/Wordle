@@ -63,8 +63,11 @@ public partial class WordleViewModel : INotifyPropertyChanged
         
     }
 
-    public void EnterSpace()
+    public void EnterPressed()
     {
+        if (colNum != 5)
+            return;
+     
         var allowed = true;
 
         if (allowed)
@@ -83,9 +86,10 @@ public partial class WordleViewModel : INotifyPropertyChanged
 
     }
 
-    public void LetterEnter(char letter)
+    public void LetterEntered(char letter)
     {
-
+        if (colNum == 5)
+            return;
     }
 
     private async Task GetWords()
