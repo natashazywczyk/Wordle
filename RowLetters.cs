@@ -14,7 +14,17 @@ namespace Wordle
 
     public partial class Letters
     {
-        private char userInput;
+        char letter;
+        public char userInput
+        {
+            get => letter;
+            set
+            {
+                if (letter == value)
+                    return;
+                letter = value;
+            }
+        }
 
         private Color colour;
     }

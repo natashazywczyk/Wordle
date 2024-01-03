@@ -19,6 +19,16 @@
         <ResourceDictionary>
             <Color x:Key="CorrectSpaceColour">#4dba47</Color>
             <Color x:Key="IncorrectSpaceColour">#bbbf47</Color>
+            <Color x:Key="LightFontColour">#f2f3f5</Color>
+            <Color x:Key="DarkFontColour">#121212</Color>
+
+            <Style x:Key="LetterSpace" TargetType="Button">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=DarkFontColour, Dark=LightFontColour}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=DarkFontColour, Dark=LightFontColour}"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -38,9 +48,9 @@
                            BindableLayout.ItemsSource="{Binding Letter}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="model:Letters">
-                                    <Frame>
-                                    
-                                    </Frame>
+                                    <Button Style="{DynamicResource LetterSpace}"
+                                            Text="{Binding userInput}"/>
+
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                        </HorizontalStackLayout>
