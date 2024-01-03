@@ -7,20 +7,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Wordle;
-public class WordleViewModel : INotifyPropertyChanged
+public partial class WordleViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
     WordleViewModel wordleModel;
+    HttpClient httpClient;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
+    public WordleViewModel()
+    {
+        httpClient = new HttpClient();
+    }
+
     public void check(char[] answer)
     {
         
+    }
+
+    private async Task GetWords()
+    {
+        var response = await httpClient.GetAsync("https://raw.githubusercontent.com/DonH-ITS/jsonfiles/main/words.txt");
     }
 }
 
