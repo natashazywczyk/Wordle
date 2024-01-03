@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntelliJ.Lang.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +16,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
     WordleViewModel wordleModel;
     HttpClient httpClient;
     List<Word> wordList;
+    private bool isBusy;
     private int rowNum;
     private int colNum;
 
@@ -22,6 +24,23 @@ public partial class WordleViewModel : INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+    public bool IsBusy
+    {
+        get => isBusy;
+        set
+        {
+            if (isBusy == value)
+                return;
+            isBusy = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(IsNotBusy));
+
+        }
+    }
+
+
+    private bool IsNotBusy => !IsBusy;
+
 
     public WordleViewModel()
     {
@@ -59,17 +78,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
         }
 
         var response = await httpClient.GetAsync("https://raw.githubusercontent.com/DonH-ITS/jsonfiles/main/words.txt");
-
-
-        if (response.IsSuccessStatusCode)
-        {
-            string contents = await response.Content.ReadAsStringAsync();
-            wordList = JsonSerializer.Deserialize<List<Word>>(contents);
-
-            //return await response.Content.ReadAsStringAsync();
-        }
-
-        return;
     }
 }
 
