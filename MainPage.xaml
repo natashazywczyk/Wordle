@@ -20,11 +20,11 @@
             
             <!--Enter Space-->
             <VerticalStackLayout
-                BindableLayout.ItemsSource="{Binding rows}">
+                BindableLayout.ItemsSource="{Binding Rows}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="model:Word">
                        <HorizontalStackLayout
-                           BindableLayout.ItemsSource="{Binding Letters}">
+                           BindableLayout.ItemsSource="{Binding Letter}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="model:Letters">
                                     <Frame>

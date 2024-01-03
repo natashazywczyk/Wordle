@@ -20,6 +20,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
     private bool isBusy;
     private int rowNum;
     private int colNum;
+    private Word[] rows;
 
     //PropertyChanged method
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -51,7 +52,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
     }
 
     //RowLetters.cs referenced
-    public Word[] rows
+    public Word[] Rows
     {
         get => rows;
         set
