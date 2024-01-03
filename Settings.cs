@@ -44,8 +44,8 @@ namespace Wordle
         //Constructor
         public Settings()
         {
-            CorrectSpace = "#2B0B98";
-            IncorrectSpace = "#2B0B98";
+            CorrectSpace = "#4dba47";
+            IncorrectSpace = "#bbbf47";
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
