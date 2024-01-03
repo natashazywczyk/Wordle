@@ -16,13 +16,28 @@
              x:DataType ="viewmodel:WordleViewModel">
 
     <ScrollView>
-        <Grid>
+        <Grid RowDefinitions="*, Auto">
+            
             <!--Enter Space-->
             <VerticalStackLayout
                 BindableLayout.ItemsSource="{Binding rows}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="model:Word">
+                       <HorizontalStackLayout
+                           BindableLayout.ItemsSource="{Binding Letters}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="model:Letters">
+                                    <Frame>
+                                    
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                       </HorizontalStackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
                 
             </VerticalStackLayout>
-            </Grid>
+        </Grid>
     </ScrollView>
 
     <!--<Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
