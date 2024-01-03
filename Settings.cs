@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 //C# code for settings
@@ -41,7 +42,7 @@ namespace Wordle
             }
         }
 
-        //Constructor
+        //Constructor, default settings inside
         public Settings()
         {
             CorrectSpace = "#4dba47";
@@ -52,6 +53,15 @@ namespace Wordle
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
 
+        public void SaveJson()
+        {
+            string jsonstring = JsonSerializer.Serialize(this);
+            string filename = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "settings.json");
+            using (StreamWriter writer = new StreamWriter(filename))
+            {
+                writer.Write(jsonstring);
+            }
+        }
+    }
 }
