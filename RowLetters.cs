@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Wordle
 {
 
-    public class Word
+    public class WordGuess
     {
         public Letters[] Letter { get; set; }
     }

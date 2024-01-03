@@ -16,11 +16,11 @@ public partial class WordleViewModel : INotifyPropertyChanged
     //Variables
     WordleViewModel wordleModel;
     HttpClient httpClient;
-    List<Word> wordList;
+    List<WordGuess> wordList;
     private bool isBusy;
     private int rowNum;
     private int colNum;
-    private Word[] rows;
+    private WordGuess[] rows;
 
     //PropertyChanged method
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -49,10 +49,21 @@ public partial class WordleViewModel : INotifyPropertyChanged
     {
         httpClient = new HttpClient();
         wordList = new();
+
+        rows = new WordGuess[6]
+        {   
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess()
+        };
+
     }
 
     //RowLetters.cs referenced
-    public Word[] Rows
+    public WordGuess[] Rows
     {
         get => rows;
         set
@@ -122,7 +133,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
         if (response.IsSuccessStatusCode)
         {
             string contents = await response.Content.ReadAsStringAsync();
-            wordList = JsonSerializer.Deserialize<List<Word>>(contents);
+            wordList = JsonSerializer.Deserialize<List<WordGuess>>(contents);
 
             //return await response.Content.ReadAsStringAsync();
         }

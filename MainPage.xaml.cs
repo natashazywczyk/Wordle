@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text.Json;
 
 
 namespace Wordle
@@ -12,6 +13,9 @@ namespace Wordle
         private int interval = 1000;
         private int countdown = 60;
         private bool run = false;
+        private Settings set;
+        private bool fromsettingspage = false;
+        private bool allInitialised = false;
 
         private System.Timers.Timer timer;
 
@@ -23,77 +27,134 @@ namespace Wordle
 
             SetUpTimers();
         }
-
-       /*ublic async void StartBtn_Clicked(object sender, EventArgs e)
+        private async Task InitialiseObjectVariables()
         {
-            StartBtn.Opacity = 1;
-            await StartBtn.FadeTo(0, 1000);
-
-            bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
-
-            if (choice)
+            //Check to see if a settings .json already exists
+            string settingsfilename = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "settings.json");
+            if (File.Exists(settingsfilename))
             {
-                WordleStart();
-            }
-
-        }
-        private void InitialiseGrid1()
-        {
-            for (int i = 0; i < 1; i++)
-            {
-                for (int j = 0; j < 5; j++)
+                try
                 {
-
-                    BoxView box1 = new BoxView()
+                    using (StreamReader reader = new StreamReader(settingsfilename))
                     {
-                        CornerRadius = 6,
-                        Color = Color.FromRgb(255, 255, 0)
-                    };
-
-                    wordleGrid1.Add(box1, j, i);
-
+                        string jsonstring = reader.ReadToEnd();
+                        set = JsonSerializer.Deserialize<Settings>(jsonstring);
+                    }
+                }
+                catch
+                {
+                    set = new Settings();
                 }
             }
+            else
+                set = new Settings();
+            UpdateSettings();
+            //SetUpGrid();
+
+            allInitialised = true;
         }
 
 
-        private void InitialiseGrid2()
+        private async void SettingsBtn_Clicked(object sender, EventArgs e)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-
-                    BoxView box2 = new BoxView()
-                    {
-                        CornerRadius = 5,
-                        Color = Color.FromRgb(255, 0, 255)
-                    };
-
-                    wordleGrid2.Add(box2, j, i);
-
-                }
-            }
+            SettingsPage setpage = new SettingsPage(set);
+            fromsettingspage = true;
+            await Navigation.PushAsync(setpage);
         }
 
-        private void InitialiseGrid3()
+        private void UpdateSettings()
         {
-            for (int i = 0; i < 1; i++)
+            Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
+            Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
+        }
+
+        protected override void OnNavigatedTo(NavigatedToEventArgs args)
+        {
+            //If the Navigation has come from the Welcome Page and the game has already started, reset the game
+            if (allInitialised && !fromsettingspage)
             {
-                for (int j = 0; j < 5; j++)
-                {
 
-                    BoxView box3 = new BoxView()
-                    {
-                        CornerRadius = 5,
-                        Color = Color.FromRgb(0, 255, 255)
-                    };
-
-                    wordleGrid3.Add(box3, j, i);
-
-                }
+                //InitialiseGrid();
             }
-        }*/
+            else if (fromsettingspage)
+            {
+                //Update settings if navigated from the settings page
+                UpdateSettings();
+                fromsettingspage = false;
+            }
+            base.OnNavigatedTo(args);
+        }
+
+        /*ublic async void StartBtn_Clicked(object sender, EventArgs e)
+         {
+             StartBtn.Opacity = 1;
+             await StartBtn.FadeTo(0, 1000);
+
+             bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
+
+             if (choice)
+             {
+                 WordleStart();
+             }
+
+         }
+         private void InitialiseGrid1()
+         {
+             for (int i = 0; i < 1; i++)
+             {
+                 for (int j = 0; j < 5; j++)
+                 {
+
+                     BoxView box1 = new BoxView()
+                     {
+                         CornerRadius = 6,
+                         Color = Color.FromRgb(255, 255, 0)
+                     };
+
+                     wordleGrid1.Add(box1, j, i);
+
+                 }
+             }
+         }
+
+
+         private void InitialiseGrid2()
+         {
+             for (int i = 0; i < 1; i++)
+             {
+                 for (int j = 0; j < 5; j++)
+                 {
+
+                     BoxView box2 = new BoxView()
+                     {
+                         CornerRadius = 5,
+                         Color = Color.FromRgb(255, 0, 255)
+                     };
+
+                     wordleGrid2.Add(box2, j, i);
+
+                 }
+             }
+         }
+
+         private void InitialiseGrid3()
+         {
+             for (int i = 0; i < 1; i++)
+             {
+                 for (int j = 0; j < 5; j++)
+                 {
+
+                     BoxView box3 = new BoxView()
+                     {
+                         CornerRadius = 5,
+                         Color = Color.FromRgb(0, 255, 255)
+                     };
+
+                     wordleGrid3.Add(box3, j, i);
+
+                 }
+             }
+         }*/
 
         private void SetUpTimers()
         {

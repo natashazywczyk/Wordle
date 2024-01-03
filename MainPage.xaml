@@ -15,6 +15,17 @@
              xmlns:viewmodel ="clr-namespace:Wordle"
              x:DataType ="viewmodel:WordleViewModel">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="CorrectSpaceColour">#4dba47</Color>
+            <Color x:Key="IncorrectSpaceColour">#bbbf47</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{AppThemeBinding Light=settings.png, Dark=settingsdark.png}" Clicked="SettingsBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <Grid RowDefinitions="*, Auto">
             
@@ -22,7 +33,7 @@
             <VerticalStackLayout
                 BindableLayout.ItemsSource="{Binding Rows}">
                 <BindableLayout.ItemTemplate>
-                    <DataTemplate x:DataType="model:Word">
+                    <DataTemplate x:DataType="model:WordGuess">
                        <HorizontalStackLayout
                            BindableLayout.ItemsSource="{Binding Letter}">
                             <BindableLayout.ItemTemplate>
