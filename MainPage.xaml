@@ -16,10 +16,13 @@
              x:DataType ="viewmodel:WordleViewModel">
 
     <ScrollView>
-        <VerticalStackLayout>
-
-
-        </VerticalStackLayout>
+        <Grid>
+            <!--Enter Space-->
+            <VerticalStackLayout
+                BindableLayout.ItemsSource="{Binding rows}">
+                
+            </VerticalStackLayout>
+            </Grid>
     </ScrollView>
 
     <!--<Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />

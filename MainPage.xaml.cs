@@ -1,5 +1,4 @@
-﻿using AndroidX.Lifecycle;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
 
@@ -136,7 +135,7 @@ namespace Wordle
                 );
         }
 
-        private void WordleStart()
+        /*private void WordleStart()
         {
             InitialiseGrid1();
             InitialiseGrid2();
@@ -148,7 +147,7 @@ namespace Wordle
 
             timer_lbl.Text = countdown.ToString();
 
-        }
+        }*/
 
     }
 }

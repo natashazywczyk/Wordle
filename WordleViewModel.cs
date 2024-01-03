@@ -51,7 +51,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
     }
 
     //RowLetters.cs referenced
-    private Word[] rows
+    public Word[] rows
     {
         get => rows;
         set
