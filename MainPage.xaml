@@ -23,8 +23,8 @@
             <Color x:Key="DarkFontColour">#121212</Color>
 
             <Style x:Key="LetterSpace" TargetType="Button">
-                <Setter Property="TextColor" Value="{AppThemeBinding Light=DarkFontColour, Dark=LightFontColour}"/>
-                <Setter Property="BorderColor" Value="{AppThemeBinding Light=DarkFontColour, Dark=LightFontColour}"/>
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+                <Setter Property="BorderColor" Value="SlateGrey"/>
                 <Setter Property="BorderWidth" Value="3"/>
                 <Setter Property="CornerRadius" Value="6"/>
                 <Setter Property="Padding" Value="10"/>
