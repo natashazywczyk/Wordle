@@ -14,18 +14,6 @@ namespace Wordle
 
         private System.Timers.Timer timer;
 
-        public void readWordList()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            Stream? directWordList = assembly.GetManifestResourceStream("Wordle.Resources.words.txt");
-
-            using (StreamReader read = new StreamReader(directWordList))
-            {
-                string wordList = read.ReadToEnd();
-                // Process 'content' here (e.g., display or manipulate it)
-            }
-        }
-
         public MainPage()
         {
             InitializeComponent();
@@ -160,4 +148,17 @@ namespace Wordle
 
     }
 }
+
+
+/*public void readWordList()
+ {
+     Assembly assembly = Assembly.GetExecutingAssembly();
+     Stream? directWordList = assembly.GetManifestResourceStream("Wordle.Resources.words.txt");
+
+     using (StreamReader read = new StreamReader(directWordList))
+     {
+         string wordList = read.ReadToEnd();
+         // Process words here
+     }
+ }*/
 
