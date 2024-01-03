@@ -44,6 +44,8 @@ public partial class WordleViewModel : INotifyPropertyChanged
     }
     public bool IsNotBusy => !isBusy;
 
+    //test answer
+    char[] correctAnswer;
 
     public WordleViewModel()
     {
@@ -59,6 +61,8 @@ public partial class WordleViewModel : INotifyPropertyChanged
             new WordGuess(),
             new WordGuess()
         };
+
+        correctAnswer = "ground".ToCharArray();
 
     }
 
