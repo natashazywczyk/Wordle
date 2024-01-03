@@ -1,9 +1,18 @@
 namespace Wordle;
 
-public partial class NewPage1 : ContentPage
+public partial class SettingsPage : ContentPage
 {
-	public NewPage1()
+	Settings set;
+	public SettingsPage(Settings s)
 	{
+		this.set = s;
 		InitializeComponent();
+		BindingContext = set;
 	}
+
+    private async void SaveBtn_Clicked(object sender, EventArgs e)
+    {
+        //set.SaveJson();
+        await Navigation.PopAsync();
+    }
 }
