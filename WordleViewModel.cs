@@ -13,7 +13,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     //PropertyChanged event declaration
     public event PropertyChangedEventHandler PropertyChanged;
 
-
     //Variables
     WordleViewModel wordleModel;
     HttpClient httpClient;
