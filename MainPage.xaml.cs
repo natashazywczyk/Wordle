@@ -24,8 +24,21 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
-
             SetUpTimers();
+        }
+
+        public async void StartBtn_Clicked(object sender, EventArgs e)
+        {
+            StartBtn.Opacity = 1;
+            await StartBtn.FadeTo(0, 1000);
+
+            bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
+
+            if (choice)
+            {
+                WordleStart();
+            }
+
         }
         private async Task InitialiseObjectVariables()
         {
@@ -48,25 +61,54 @@ namespace Wordle
             }
             else
                 set = new Settings();
-            UpdateSettings();
+            //UpdateSettings();
             //SetUpGrid();
 
             allInitialised = true;
         }
 
+        private void InitialiseGrid()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Entry inputBox = new Entry
+                    {
+                        WidthRequest = 50,
+                        HeightRequest = 50
+                    };
 
-        private async void SettingsBtn_Clicked(object sender, EventArgs e)
+                    Input.Add(inputBox, j, i);
+
+                }
+            }
+        }
+        private void WordleStart()
+        {
+            InitialiseGrid();
+
+            timer.Start();
+
+            run = true;
+
+            timer_lbl.Text = countdown.ToString();
+
+        }
+
+
+            private async void SettingsBtn_Clicked(object sender, EventArgs e)
         {
             SettingsPage setpage = new SettingsPage(set);
             fromsettingspage = true;
             await Navigation.PushAsync(setpage);
         }
 
-        private void UpdateSettings()
+       /* private void UpdateSettings()
         {
             Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
             Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
-        }
+        }*/
 
         protected override void OnNavigatedTo(NavigatedToEventArgs args)
         {
@@ -79,7 +121,7 @@ namespace Wordle
             else if (fromsettingspage)
             {
                 //Update settings if navigated from the settings page
-                UpdateSettings();
+                //UpdateSettings();
                 fromsettingspage = false;
             }
             base.OnNavigatedTo(args);
@@ -170,7 +212,7 @@ namespace Wordle
         private void TimerFunction()
         {
             --countdown;
-           // timer_lbl.Text = countdown.ToString();
+            timer_lbl.Text = countdown.ToString();
 
             if (countdown <= 0)
             {
@@ -198,7 +240,7 @@ namespace Wordle
 
         /*private void WordleStart()
         {
-            InitialiseGrid1();
+            InitialiseGrid();
             InitialiseGrid2();
             InitialiseGrid3();
 

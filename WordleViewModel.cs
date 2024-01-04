@@ -62,7 +62,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
             new WordGuess()
         };
 
-        correctAnswer = "ground".ToCharArray();
+        correctAnswer = "grown".ToCharArray();
 
     }
 
@@ -79,7 +79,7 @@ public partial class WordleViewModel : INotifyPropertyChanged
         }
     }
 
-    public void check(char[] answer)
+    public void colourCorrect(char[] answer)
     {
         
     }

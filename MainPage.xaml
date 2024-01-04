@@ -39,28 +39,19 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
-            
-            <Grid RowDefinitions="*, Auto">
 
-                <!--Enter Space-->
-                <CollectionView
-                ItemsSource="{Binding Rows}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:WordGuess">
-                            <HorizontalStackLayout
-                           BindableLayout.ItemsSource="{Binding Letter}">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate x:DataType="model:Letters">
-                                        <Button Style="{DynamicResource LetterSpace}"
-                                            Text="{Binding UserInput}"/>
+            <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
+                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
 
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </HorizontalStackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
+            <HorizontalStackLayout>
+                <Label Text="Seconds Remaining: "/>
+                <Label x:Name="timer_lbl" Text="60 " FontSize="30"/>
+            </HorizontalStackLayout>
 
-                </CollectionView>
+            <Grid x:Name="Input" RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*" 
+                  RowSpacing="5" ColumnSpacing="5" BackgroundColor="WhiteSmoke" IsVisible="True" IsEnabled="True">
+
+             
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
@@ -89,6 +80,45 @@
 <Grid x:Name="wordleGrid3" WidthRequest="600" HeightRequest="90"
       Background="#ead4fc" IsVisible="True" IsEnabled="True"
       RowDefinitions="*" ColumnDefinitions="*,*,*,*,*">
-</Grid>-->
+</Grid>
+    
+    <Grid>
+    <Entry Grid.Row="0" Grid.Column="0" WidthRequest="50" HeightRequest="50"/>
+    <Entry Grid.Row="0" Grid.Column="1" WidthRequest="50" HeightRequest="50"/>
+    <Entry Grid.Row="0" Grid.Column="2" WidthRequest="50" HeightRequest="50"/>
+    <Entry Grid.Row="0" Grid.Column="3" WidthRequest="50" HeightRequest="50"/>
+    <Entry Grid.Row="0" Grid.Column="4" WidthRequest="50" HeightRequest="50"/>
+
+    <Entry Grid.Row="1" Grid.Column="0"/>
+    <Entry Grid.Row="1" Grid.Column="1"/>
+    <Entry Grid.Row="1" Grid.Column="2"/>
+    <Entry Grid.Row="1" Grid.Column="3"/>
+    <Entry Grid.Row="1" Grid.Column="4"/>
+
+    <Entry Grid.Row="2" Grid.Column="0"/>
+    <Entry Grid.Row="2" Grid.Column="1"/>
+    <Entry Grid.Row="2" Grid.Column="2"/>
+    <Entry Grid.Row="2" Grid.Column="3"/>
+    <Entry Grid.Row="2" Grid.Column="4"/>
+
+    <Entry Grid.Row="3" Grid.Column="0"/>
+    <Entry Grid.Row="3" Grid.Column="1"/>
+    <Entry Grid.Row="3" Grid.Column="2"/>
+    <Entry Grid.Row="3" Grid.Column="3"/>
+    <Entry Grid.Row="3" Grid.Column="4"/>
+
+    <Entry Grid.Row="4" Grid.Column="0"/>
+    <Entry Grid.Row="4" Grid.Column="1"/>
+    <Entry Grid.Row="4" Grid.Column="2"/>
+    <Entry Grid.Row="4" Grid.Column="3"/>
+    <Entry Grid.Row="4" Grid.Column="4"/>
+
+
+    <Entry Grid.Row="5" Grid.Column="0"/>
+    <Entry Grid.Row="5" Grid.Column="1"/>
+    <Entry Grid.Row="5" Grid.Column="2"/>
+    <Entry Grid.Row="5" Grid.Column="3"/>
+    <Entry Grid.Row="5" Grid.Column="4"/>
+    </Grid>-->
 
 </ContentPage>

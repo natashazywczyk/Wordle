@@ -39,8 +39,6 @@ namespace Wordle
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        private Color colour;
     }
 }
 
