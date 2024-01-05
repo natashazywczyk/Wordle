@@ -20,6 +20,7 @@ namespace Wordle
         private int currentColumn = 0;
         private int lettersClicked = 0;
         private int score = 0;
+        private int letterEnteredCount = 0;
         char[] lettersArray = { '-', '-', '-', '-', '-' };
 
         private System.Timers.Timer timer;
@@ -77,18 +78,22 @@ namespace Wordle
         {
             if (sender is Button button)
             {
-                char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
+                if (letterEnteredCount > 5)
+                    return;
 
+                char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
                 lettersArray[currentColumn] = selectedLetter;
+
                 foreach (var child in wordGuessCharacters.Children)
                 {
-                    if (wordGuessCharacters.GetRow(child) == currentRow && wordGuessCharacters.GetColumn(child) == currentColumn && child is Label label)
+                    if (wordGuessCharacters.GetRow(child) == currentRow && wordGuessCharacters.GetColumn(child) == currentColumn && child is Label letter)
                     {
-                        label.Text = "" + selectedLetter;
+                        letter.Text = "" + selectedLetter;
                         break;
                     }
                 }
                 currentColumn++;
+                letterEnteredCount++;
             }
         }
 
@@ -98,7 +103,7 @@ namespace Wordle
             {
                 for (int y = 0; y < 5; y++)
                 {
-                    var label = new Label
+                    var letter = new Label
                     {
                         Text = " ",
                         FontSize = 20,
@@ -113,9 +118,9 @@ namespace Wordle
                     };
 
 
-                    wordGuessCharacters.Children.Add(label);
-                    Grid.SetRow(label, x);
-                    Grid.SetColumn(label, y);
+                    wordGuessCharacters.Children.Add(letter);
+                    Grid.SetRow(letter, x);
+                    Grid.SetColumn(letter, y);
                 }
             }
         }
