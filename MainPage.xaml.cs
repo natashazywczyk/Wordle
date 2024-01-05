@@ -29,6 +29,7 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
+            initializeLetterGrid();
 
             //SetUpTimers();
         }
@@ -72,39 +73,87 @@ namespace Wordle
 
             allInitialised = true;
         }
-
-
-       /* private void InitialiseGrid()
+        private void charBtnClicked(object sender, EventArgs e)
         {
-            for (int i = 0; i < 6; i++)
+            if (sender is Button button)
             {
-                for (int j = 0; j < 5; j++)
+                char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
+
+                lettersArray[currentColumn] = selectedLetter;
+                foreach (var child in wordGuessCharacters.Children)
                 {
-                    Entry inputBox = new Entry
+                    if (wordGuessCharacters.GetRow(child) == currentRow && wordGuessCharacters.GetColumn(child) == currentColumn && child is Label label)
                     {
-                        WidthRequest = 50,
-                        HeightRequest = 50
+                        label.Text = "" + selectedLetter;
+                        break;
+                    }
+                }
+                currentColumn++;
+            }
+        }
+
+        private void initializeLetterGrid()
+        {
+            for (int x = 0; x < 5; x++)
+            {
+                for (int y = 0; y < 5; y++)
+                {
+                    var label = new Label
+                    {
+                        Text = " ",
+                        FontSize = 20,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center,
+
+                        TextColor = Colors.White,
+                        BackgroundColor = Colors.SlateGray,
+                        Margin = new Thickness(5),
+                        HeightRequest = 60,
+                        WidthRequest = 60
                     };
 
-                    Input.Add(inputBox, j, i);
 
+                    wordGuessCharacters.Children.Add(label);
+                    Grid.SetRow(label, x);
+                    Grid.SetColumn(label, y);
                 }
             }
         }
-        private void WordleStart()
-        {
-            InitialiseGrid();
-
-            timer.Start();
-
-            run = true;
-
-            timer_lbl.Text = countdown.ToString();
-
-        }*/
 
 
-            private async void SettingsBtn_Clicked(object sender, EventArgs e)
+
+
+        /* private void InitialiseGrid()
+         {
+             for (int i = 0; i < 6; i++)
+             {
+                 for (int j = 0; j < 5; j++)
+                 {
+                     Entry inputBox = new Entry
+                     {
+                         WidthRequest = 50,
+                         HeightRequest = 50
+                     };
+
+                     Input.Add(inputBox, j, i);
+
+                 }
+             }
+         }
+         private void WordleStart()
+         {
+             InitialiseGrid();
+
+             timer.Start();
+
+             run = true;
+
+             timer_lbl.Text = countdown.ToString();
+
+         }*/
+
+
+        private async void SettingsBtn_Clicked(object sender, EventArgs e)
         {
             SettingsPage setpage = new SettingsPage(set);
             fromsettingspage = true;

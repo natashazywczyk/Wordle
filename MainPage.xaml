@@ -82,6 +82,30 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+
+                <Button Text="A" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="0"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="B" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="1"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="C" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="2"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="D" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="3"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="E" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="4"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="F" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="5"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="G" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="6"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="H" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="7"
+    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
