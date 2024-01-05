@@ -84,28 +84,80 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Text="A" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="0"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="B" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="1"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="C" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="2"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="D" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="3"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="E" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="4"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="F" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="5"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="G" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="6"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
                 <Button Text="H" Clicked="charBtnClicked" Grid.Row="0" Grid.Column="7"
-    BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+              
+                <Button Text="I" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="0"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="J" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="1"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="K" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="2"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="L" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="3"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="M" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="4"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="N" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="5"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="O" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="6"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="P" Clicked="charBtnClicked" Grid.Row="1" Grid.Column="7"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="Q" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="0"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="R" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="1"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="S" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="2"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="T" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="3"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="U" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="4"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="V" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="5"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="W" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="6"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="X" Clicked="charBtnClicked" Grid.Row="2" Grid.Column="7"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
+                <Button Text="Y" Clicked="charBtnClicked" Grid.Row="3" Grid.Column="0"
+                        BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
+
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
