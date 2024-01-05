@@ -74,6 +74,8 @@ namespace Wordle
 
             allInitialised = true;
         }
+
+        //Reads characters entered from keyboard and moves over to next column
         private void charBtnClicked(object sender, EventArgs e)
         {
             if (sender is Button button)
@@ -97,6 +99,7 @@ namespace Wordle
             }
         }
 
+        //Set up wordle guess grid 
         private void initializeLetterGrid()
         {
             for (int x = 0; x < 5; x++)
