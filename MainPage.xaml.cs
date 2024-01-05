@@ -78,7 +78,7 @@ namespace Wordle
         {
             if (sender is Button button)
             {
-                if (letterEnteredCount > 5)
+                if (letterEnteredCount > 4)
                     return;
 
                 char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
