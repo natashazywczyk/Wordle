@@ -16,6 +16,11 @@ namespace Wordle
         private Settings set;
         private bool fromsettingspage = false;
         private bool allInitialised = false;
+        private int currentRow = 0;
+        private int currentColumn = 0;
+        private int lettersClicked = 0;
+        private int score = 0;
+        char[] lettersArray = { '-', '-', '-', '-', '-' };
 
         private System.Timers.Timer timer;
 
@@ -24,6 +29,7 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
+
             //SetUpTimers();
         }
 
@@ -66,6 +72,7 @@ namespace Wordle
 
             allInitialised = true;
         }
+
 
        /* private void InitialiseGrid()
         {
