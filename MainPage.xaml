@@ -22,13 +22,13 @@
             <Color x:Key="LightFontColour">#f2f3f5</Color>
             <Color x:Key="DarkFontColour">#121212</Color>
 
-            <Style x:Key="LetterSpace" TargetType="Button">
+            <!--<Style x:Key="LetterSpace" TargetType="Button">
                 <Setter Property="TextColor" Value="WhiteSmoke"/>
                 <Setter Property="BorderColor" Value="SlateGrey"/>
                 <Setter Property="BorderWidth" Value="3"/>
                 <Setter Property="CornerRadius" Value="6"/>
                 <Setter Property="Padding" Value="10"/>
-            </Style>
+            </Style>-->
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -40,18 +40,48 @@
         <VerticalStackLayout>
             <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
 
-            <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
-                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+            <!--<Button x:Name="StartBtn" Text="Start" WidthRequest="100"
+                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>-->
 
-            <HorizontalStackLayout>
-                <Label Text="Seconds Remaining: "/>
-                <Label x:Name="timer_lbl" Text="60 " FontSize="30"/>
-            </HorizontalStackLayout>
+            
+            <Grid x:Name="wordGuessCharacters" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Grid x:Name="Input" RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*" 
-                  RowSpacing="5" ColumnSpacing="5" BackgroundColor="WhiteSmoke" IsVisible="True" IsEnabled="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
 
-             
+
+            <Grid x:Name="backspaceEnteredGrid" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

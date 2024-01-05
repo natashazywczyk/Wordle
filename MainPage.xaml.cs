@@ -24,10 +24,10 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
-            SetUpTimers();
+            //SetUpTimers();
         }
 
-        public async void StartBtn_Clicked(object sender, EventArgs e)
+       /* public async void StartBtn_Clicked(object sender, EventArgs e)
         {
             StartBtn.Opacity = 1;
             await StartBtn.FadeTo(0, 1000);
@@ -39,7 +39,7 @@ namespace Wordle
                 WordleStart();
             }
 
-        }
+        }*/
         private async Task InitialiseObjectVariables()
         {
             //Check to see if a settings .json already exists
@@ -67,7 +67,7 @@ namespace Wordle
             allInitialised = true;
         }
 
-        private void InitialiseGrid()
+       /* private void InitialiseGrid()
         {
             for (int i = 0; i < 6; i++)
             {
@@ -94,7 +94,7 @@ namespace Wordle
 
             timer_lbl.Text = countdown.ToString();
 
-        }
+        }*/
 
 
             private async void SettingsBtn_Clicked(object sender, EventArgs e)
@@ -196,7 +196,7 @@ namespace Wordle
 
                  }
              }
-         }*/
+         }
 
         private void SetUpTimers()
         {
@@ -236,7 +236,7 @@ namespace Wordle
                         TimerFunction();
                     }
                 );
-        }
+        }*/
 
         /*private void WordleStart()
         {
