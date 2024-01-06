@@ -44,9 +44,8 @@ namespace Wordle
                 {
                     letter.Color = Colors.DimGray;
                 }
-
-                return loop == 5;
             }
+            return loop == 5;
         }
     }
 
