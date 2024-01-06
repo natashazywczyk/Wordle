@@ -20,7 +20,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     private bool isBusy;
     private int rowNum;
     private int colNum;
-    private WordGuess[] rows;
 
     //PropertyChanged method
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -44,41 +43,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     }
     public bool IsNotBusy => !isBusy;
 
-    //test answer
-    char[] correctAnswer;
-
-    public WordleViewModel()
-    {
-        httpClient = new HttpClient();
-        wordList = new();
-
-
-        Rows = new WordGuess[6]
-        {
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess()
-        };
-
-        correctAnswer = "grown".ToCharArray();
-
-    }
-
-    //RowLetters.cs referenced
-    public WordGuess[] Rows
-    {
-        get => rows;
-        set
-        {
-            if(rows == value) 
-                return;
-            rows = value;   
-            OnPropertyChanged();
-        }
-    }
 
     public void colourCorrect(char[] answer)
     {
