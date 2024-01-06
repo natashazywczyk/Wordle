@@ -52,8 +52,9 @@ public partial class WordleViewModel : INotifyPropertyChanged
         httpClient = new HttpClient();
         wordList = new();
 
-        rows = new WordGuess[6]
-        {   
+
+        Rows = new WordGuess[6]
+        {
             new WordGuess(),
             new WordGuess(),
             new WordGuess(),
