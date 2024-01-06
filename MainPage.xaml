@@ -40,11 +40,18 @@
         <VerticalStackLayout>
             <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
 
-            <!--<Button x:Name="StartBtn" Text="Start" WidthRequest="100"
-                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>-->
+            <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
+                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+            
+            <HorizontalStackLayout>
+                <Label Text="Seconds Remaining: "/>
+                <Label x:Name="timer_lbl" Text="60 " FontSize="30"/>
+
+            </HorizontalStackLayout>
+            
 
             
-            <Grid x:Name="wordGuessCharacters" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10">
+            <Grid x:Name="wordGuessCharacters" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />

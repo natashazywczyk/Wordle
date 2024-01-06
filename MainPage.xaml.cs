@@ -30,24 +30,62 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
-            initializeLetterGrid();
 
-            //SetUpTimers();
+            SetUpTimers();
+        }
+        private void SetUpTimers()
+        {
+
+            timer = new System.Timers.Timer
+            {
+                Interval = interval
+            };
+
+            timer.Elapsed += Timer_Elapsed;
+
+        }
+        private void TimerFunction()
+        {
+            --countdown;
+            timer_lbl.Text = countdown.ToString();
+
+            if (countdown <= 0)
+            {
+                End();
+            }
         }
 
-       /* public async void StartBtn_Clicked(object sender, EventArgs e)
+        private void End()
         {
-            StartBtn.Opacity = 1;
-            await StartBtn.FadeTo(0, 1000);
+            timer.Stop();
 
-            bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
+            run = false;
+        }
 
-            if (choice)
-            {
-                WordleStart();
-            }
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Dispatcher.Dispatch
+                (
+                    () =>
+                    {
+                        TimerFunction();
+                    }
+                );
+        }
 
-        }*/
+         public async void StartBtn_Clicked(object sender, EventArgs e)
+         {
+             StartBtn.Opacity = 1;
+             await StartBtn.FadeTo(0, 1000);
+
+             bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
+
+             if (choice)
+             {
+                 WordleStart();
+             }
+
+         }
         private async Task InitialiseObjectVariables()
         {
             //Check to see if a settings .json already exists
@@ -109,15 +147,15 @@ namespace Wordle
                     var letter = new Label
                     {
                         Text = " ",
-                        FontSize = 20,
+                        FontSize = 30,
                         HorizontalTextAlignment = TextAlignment.Center,
                         VerticalTextAlignment = TextAlignment.Center,
 
                         TextColor = Colors.White,
-                        BackgroundColor = Colors.SlateGray,
+                        BackgroundColor = Colors.LightSteelBlue,
                         Margin = new Thickness(5),
                         HeightRequest = 60,
-                        WidthRequest = 60
+                        WidthRequest = 60,
                     };
 
 
@@ -127,30 +165,9 @@ namespace Wordle
                 }
             }
         }
-
-
-
-
-        /* private void InitialiseGrid()
-         {
-             for (int i = 0; i < 6; i++)
-             {
-                 for (int j = 0; j < 5; j++)
-                 {
-                     Entry inputBox = new Entry
-                     {
-                         WidthRequest = 50,
-                         HeightRequest = 50
-                     };
-
-                     Input.Add(inputBox, j, i);
-
-                 }
-             }
-         }
          private void WordleStart()
          {
-             InitialiseGrid();
+             initializeLetterGrid();
 
              timer.Start();
 
@@ -158,7 +175,7 @@ namespace Wordle
 
              timer_lbl.Text = countdown.ToString();
 
-         }*/
+         }
 
 
         private async void SettingsBtn_Clicked(object sender, EventArgs e)
@@ -191,7 +208,25 @@ namespace Wordle
             base.OnNavigatedTo(args);
         }
 
-        /*ublic async void StartBtn_Clicked(object sender, EventArgs e)
+        /*
+         * private void InitialiseGrid()
+         {
+             for (int i = 0; i < 6; i++)
+             {
+                 for (int j = 0; j < 5; j++)
+                 {
+                     Entry inputBox = new Entry
+                     {
+                         WidthRequest = 50,
+                         HeightRequest = 50
+                     };
+
+                     Input.Add(inputBox, j, i);
+
+                 }
+             }
+         }
+        public async void StartBtn_Clicked(object sender, EventArgs e)
          {
              StartBtn.Opacity = 1;
              await StartBtn.FadeTo(0, 1000);
