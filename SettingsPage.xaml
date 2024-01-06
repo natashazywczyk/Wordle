@@ -6,8 +6,8 @@
              xmlns:model="clr-namespace:Wordle"
              xmlns:viewmodel ="clr-namespace:Wordle"
              x:DataType ="viewmodel:Settings">
-    
-    
+
+
     <VerticalStackLayout>
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Correct Space Colour" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
@@ -18,6 +18,6 @@
         </Grid>
 
         <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn_Clicked" WidthRequest="150"/>
-        
+
     </VerticalStackLayout>
 </ContentPage>
