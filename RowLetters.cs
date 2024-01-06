@@ -10,6 +10,7 @@ namespace Wordle
 
     public class WordGuess
     {
+        int loop = 0;
         public Letters[] Letter { get; set; }
 
         public void checkLetters(char[] correctAnswer)
@@ -18,27 +19,10 @@ namespace Wordle
         }
     }
 
-    public partial class Letters : INotifyPropertyChanged
+    public partial class Letters 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private char userInput;
-        public char UserInput
-        {
-            get => userInput;
-            set
-            {
-                if (userInput != value)
-                {
-                    userInput = value;
-                    OnPropertyChanged(nameof(UserInput));
-                }
-            }
-        }
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private char userInput { get; set; }
+        private Color Color { get; set; }  
     }
 }
 
