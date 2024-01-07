@@ -53,7 +53,10 @@
             
             <Button x:Name="RuleBtn" Text="Rules" WidthRequest="100"
                       Clicked="RuleBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
-           
+
+            <Button x:Name="StatBtn" Text="Stats" WidthRequest="100"
+                      Clicked="StatsBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+
             <Grid x:Name="wordGuessCharacters" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
