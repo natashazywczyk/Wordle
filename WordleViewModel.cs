@@ -49,38 +49,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
         
     }
 
-    //If enter is pressed, to run this method
-    public void EnterPressed()
-    {
-        if (colNum != 5)
-            return;
-     
-        var allowed = true;
-
-        //if they reach 6 rows, they,ve failed
-        //If they are at row < 6, continue to move down a row
-        if (allowed)
-        {
-            if (rowNum == 5)
-            {
-                //end turn
-            }
-            else
-            {
-                rowNum++;
-                colNum = 0;
-            }
-
-        }
-
-    }
-
-    //Method to check letters they've entered
-    public void LetterEntered(char letter)
-    {
-        if (colNum == 5)
-            return;
-    }
 
     //Read the .json file for words
     private async Task GetWords()
