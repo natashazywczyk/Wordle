@@ -82,11 +82,18 @@ namespace Wordle
             }
         }
 
-        private void End()
+        private async void End()
         {
             timer.Stop();
 
             run = false;
+
+            bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of time\nWould you like to start the game?", "Yes ", "No ");
+            if (choice)
+            {
+                WordleStart();
+                Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
