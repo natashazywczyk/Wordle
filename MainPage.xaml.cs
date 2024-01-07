@@ -57,6 +57,7 @@ namespace Wordle
 
             SetUpTimers();
         }
+   
         private void SetUpTimers()
         {
 
@@ -68,6 +69,8 @@ namespace Wordle
             timer.Elapsed += Timer_Elapsed;
 
         }
+        
+        //Have the text show the countdown from 60 seconds and to stop at 0
         private void TimerFunction()
         {
             --countdown;
@@ -104,6 +107,7 @@ namespace Wordle
             set { answer = value; }
         }
 
+        //Start Button function asking player if they want to start
         public async void StartBtn_Clicked(object sender, EventArgs e)
          {
              StartBtn.Opacity = 1;
@@ -267,6 +271,8 @@ namespace Wordle
                 }
             }
         }
+
+        //Start the game, timer and form the grid
          private void WordleStart()
          {
              initializeLetterGrid();
@@ -279,7 +285,7 @@ namespace Wordle
 
          }
 
-
+        //To go to settings page
         private async void SettingsBtn_Clicked(object sender, EventArgs e)
         {
             SettingsPage setpage = new SettingsPage(set);
@@ -293,16 +299,24 @@ namespace Wordle
              Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
          }*/
 
+        //To go to rule page
         private async void RuleBtn_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RulesPage());
         }
 
+        //To navigate ti player info page
         private async void PlayerBtn_Clicked(object sender, EventArgs e)
         {
             PlayerPage setpage2 = new PlayerPage(player);
             fromplayerpage = true;
             await Navigation.PushAsync(setpage2);
+        }
+
+        //To navigate to stats page
+        private async void StatsBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StatsPage());
         }
 
         protected override void OnNavigatedTo(NavigatedToEventArgs args)
