@@ -2,8 +2,11 @@ namespace Wordle;
 
 public partial class PlayerPage : ContentPage
 {
-	public PlayerPage()
+	Player player;
+	public PlayerPage(Player p)
 	{
+		this.player = p;
 		InitializeComponent();
+		BindingContext = player;
 	}
 }
