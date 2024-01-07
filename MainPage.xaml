@@ -38,7 +38,7 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#7530D0" HorizontalOptions="CenterAndExpand" />
 
             <HorizontalStackLayout>
                 <Label Text="Seconds Remaining: "/>
