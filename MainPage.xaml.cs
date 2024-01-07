@@ -123,6 +123,8 @@ namespace Wordle
 
              PlayerBtn.IsVisible = false;
              RuleBtn.IsVisible = false;
+             StatBtn.IsVisible = false;
+             backspaceEnteredGrid.IsVisible = true;
 
          }
         private async Task InitialiseObjectVariables()
@@ -185,9 +187,6 @@ namespace Wordle
                 throw new Exception($"Error reading the file: {ex.Message}");
             }
         }
-
-
-
 
         char[] correctAnswer;
 
@@ -268,11 +267,8 @@ namespace Wordle
              initializeLetterGrid();
 
              timer.Start();
-
              run = true;
-
              timer_lbl.Text = countdown.ToString();
-
          }
 
         //To go to settings page
