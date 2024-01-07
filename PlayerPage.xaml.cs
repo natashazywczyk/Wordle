@@ -9,4 +9,11 @@ public partial class PlayerPage : ContentPage
 		InitializeComponent();
 		BindingContext = player;
 	}
+
+    private async void SaveBtn2_Clicked(object sender, EventArgs e)
+    {
+        player.SaveJson();
+        await Navigation.PopAsync();
+    }
+
 }
