@@ -119,7 +119,6 @@ namespace Wordle
              {
                  WordleStart();
                  Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
-
              }
 
              PlayerBtn.IsVisible = false;
@@ -147,7 +146,7 @@ namespace Wordle
             }
             else
                 set = new Settings();
-            //UpdateSettings();
+            UpdateSettings();
             //SetUpGrid();
 
             allInitialised = true;
@@ -284,11 +283,11 @@ namespace Wordle
             await Navigation.PushAsync(setpage);
         }
 
-        /* private void UpdateSettings()
-         {
+        private void UpdateSettings()
+        {
              Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
              Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
-         }*/
+        }
 
         //To go to rule page
         private async void RuleBtn_Clicked(object sender, EventArgs e)
@@ -296,7 +295,7 @@ namespace Wordle
             await Navigation.PushAsync(new RulesPage());
         }
 
-        //To navigate ti player info page
+        //To navigate t0 player info page
         private async void PlayerBtn_Clicked(object sender, EventArgs e)
         {
             PlayerPage setpage2 = new PlayerPage(player);
