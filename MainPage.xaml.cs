@@ -15,7 +15,9 @@ namespace Wordle
         private int countdown = 60;
         private bool run = false;
         private Settings set;
+        private Player player;
         private bool fromsettingspage = false;
+        private bool fromplayerpage = false;
         private bool allInitialised = false;
         private int currentRow = 0;
         private int currentColumn = 0;
@@ -298,7 +300,9 @@ namespace Wordle
 
         private async void PlayerBtn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PlayerPage());
+            PlayerPage setpage2 = new PlayerPage(player);
+            fromplayerpage = true;
+            await Navigation.PushAsync(setpage2);
         }
 
         protected override void OnNavigatedTo(NavigatedToEventArgs args)
