@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wordle.PlayerPage"
              Title="Player Info"
              xmlns:model="clr-namespace:Wordle"
              xmlns:viewmodel ="clr-namespace:Wordle"
              x:DataType ="viewmodel:Player">
-
-
+    
+    
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
-                <Label Text="Correct Space Colour" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
-                <Entry Text="{Binding CorrectSpace}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start"/>
+            <Label Text="Player1 Username" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
 
-                <Label Text="Incorrect Space Colour" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
-                <Entry Text="{Binding IncorrectSpace}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start"/>
-            </Grid>
-
-            <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn_Clicked" WidthRequest="150"/>
-
+            <Label Text="Player2 Username" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
+        </Grid>
         </VerticalStackLayout>
-    </ContentPage>
+            
 </ContentPage>
