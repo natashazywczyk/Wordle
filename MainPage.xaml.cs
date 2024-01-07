@@ -114,6 +114,9 @@ namespace Wordle
                  WordleStart();
              }
 
+             PlayerBtn.IsVisible = false;
+             RuleBtn.IsVisible = false;
+
          }
         private async Task InitialiseObjectVariables()
         {
@@ -203,16 +206,23 @@ namespace Wordle
                 currentColumn++;
                 letterEnteredCount++;
 
-                if(letterEnteredCount > 4 && currentColumn < lettersArray.Length)
+                if(letterEnteredCount > 4 && currentColumn >= lettersArray.Length)
                 {
-                    currentRow++;
+                    currentColumn = 0;
                 }
+
             }
         }
 
+        //Move to next row
         private void enterBtnClicked(object sender, EventArgs e)
         {
-            currentRow++;
+            if (letterEnteredCount > 4)
+            {
+                currentRow++;
+                currentColumn = 0;
+                letterEnteredCount = 0;
+            }
         }
 
 
