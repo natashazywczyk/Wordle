@@ -118,6 +118,8 @@ namespace Wordle
              if (choice)
              {
                  WordleStart();
+                 Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+
              }
 
              PlayerBtn.IsVisible = false;
