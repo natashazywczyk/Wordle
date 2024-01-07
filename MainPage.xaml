@@ -170,8 +170,8 @@
                 
                 <Button Text="Z" Clicked="charBtnClicked" Grid.Row="3" Grid.Column="0"
                         BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
-                
-                <Button Text="Enter" Clicked="enterBtnClicked" Grid.Row="3" Grid.Column="0"
+
+                <Button Text="⏎" Clicked="enterBtnClicked" Grid.Row="3" Grid.Column="0"
                         BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
             </Grid>
