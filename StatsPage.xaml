@@ -7,8 +7,6 @@
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Games Played" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Label Text="{Binding GamesPlayedTotal}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start"/>
-
-            <Label Text="Games Won" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

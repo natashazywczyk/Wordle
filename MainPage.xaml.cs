@@ -242,15 +242,15 @@ namespace Wordle
                     var letter = new Label
                     {
                         Text = " ",
-                        FontSize = 30,
+                        FontSize = 40,
                         HorizontalTextAlignment = TextAlignment.Center,
                         VerticalTextAlignment = TextAlignment.Center,
 
                         TextColor = Colors.White,
                         BackgroundColor = Colors.LightSteelBlue,
                         Margin = new Thickness(5),
-                        HeightRequest = 60,
-                        WidthRequest = 60,
+                        HeightRequest = 80,
+                        WidthRequest = 80,
                     };
 
 
