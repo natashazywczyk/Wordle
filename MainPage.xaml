@@ -37,7 +37,7 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout BackgroundColor="#AC81DC">
             <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#7530D0" HorizontalOptions="CenterAndExpand" />
 
             <HorizontalStackLayout>
