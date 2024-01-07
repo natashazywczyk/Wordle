@@ -41,7 +41,13 @@
             <Label x:Name="Title" Text="Wordle" FontSize="80" TextColor="#3225D0" HorizontalOptions="CenterAndExpand" />
 
             <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
-                     Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+                      Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+            
+            <Button x:Name="PlayerBtn" Text="Start" WidthRequest="100"
+                      Clicked="PlayerBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+            
+            <Button x:Name="RuleBtn" Text="Start" WidthRequest="100"
+                      Clicked="RuleBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
             
             <HorizontalStackLayout>
                 <Label Text="Seconds Remaining: "/>
@@ -168,7 +174,7 @@
                 <Button Text="Z" Clicked="charBtnClicked" Grid.Row="3" Grid.Column="0"
                         BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
                 
-                <Button Text="Enter" Clicked="charBtnClicked" Grid.Row="3" Grid.Column="0"
+                <Button Text="Enter" Clicked="enterBtnClicked" Grid.Row="3" Grid.Column="0"
                         BackgroundColor="MediumPurple" TextColor="White" FontSize="20" HeightRequest="60" WidthRequest="60" CornerRadius="10" Margin="5" />
 
             </Grid>

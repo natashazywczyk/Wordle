@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 using System.Reflection;
 using System.Text.Json;
 
@@ -22,6 +23,12 @@ namespace Wordle
         private int score = 0;
         private int letterEnteredCount = 0;
         char[] lettersArray = { '-', '-', '-', '-', '-' };
+        private int cont = 0;
+        string[] allAvailableWords;
+        public int GamesPlayedTotal { get; set; }
+        public WordGuess[] Rows { get; }
+        public string filePath = "C:\\Zywczyk_Natasha_Wordle\\Wordle\\Resources\\Raw\\words.txt";
+
 
         private System.Timers.Timer timer;
 
@@ -30,6 +37,21 @@ namespace Wordle
             InitializeComponent();
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
+
+            Rows = new WordGuess[6]
+            {
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess(),
+            new WordGuess()
+            };
+
+            correctAnswer = "GROWN".ToCharArray();
+
+            GamesPlayedTotal = Preferences.Default.Get("playedGamesTotal", 0);
+
 
             SetUpTimers();
         }
@@ -73,7 +95,14 @@ namespace Wordle
                 );
         }
 
-         public async void StartBtn_Clicked(object sender, EventArgs e)
+        private string answer;
+        public string Answer
+        {
+            get { return answer; }
+            set { answer = value; }
+        }
+
+        public async void StartBtn_Clicked(object sender, EventArgs e)
          {
              StartBtn.Opacity = 1;
              await StartBtn.FadeTo(0, 1000);
@@ -113,6 +142,44 @@ namespace Wordle
             allInitialised = true;
         }
 
+        //Reads file and adds strings to an array, then converting each string into an array of characters
+        public static string[] ReadFileAndConvertToChars(string filePath)
+        {
+            try
+            {
+                string[] lines = File.ReadAllLines(filePath);
+                string[] wordsArray = new string[lines.Length];
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] words = lines[i].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                }
+
+                List<char[]> WordListCharaters = new List<char[]>();
+
+                foreach (string word in wordsArray)
+                {
+                    // Convert each word to a char array
+                    char[] characters = word.ToCharArray();
+
+                    // Add the char array to the list of character arrays
+                    WordListCharaters.Add(characters);
+                }
+
+               // char[][] allCharactersArrays = WordListCharacters.ToArray();
+
+                return wordsArray;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error reading the file: {ex.Message}");
+            }
+        }
+
+
+
+        char[] correctAnswer;
+
         //Reads characters entered from keyboard and moves over to next column
         private void charBtnClicked(object sender, EventArgs e)
         {
@@ -121,6 +188,7 @@ namespace Wordle
                 if (letterEnteredCount > 4)
                     return;
 
+                
                 char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
                 lettersArray[currentColumn] = selectedLetter;
 
@@ -134,7 +202,28 @@ namespace Wordle
                 }
                 currentColumn++;
                 letterEnteredCount++;
+
+                if(letterEnteredCount > 4 && currentColumn < lettersArray.Length)
+                {
+                    currentRow++;
+                }
             }
+        }
+
+        private void enterBtnClicked(object sender, EventArgs e)
+        {
+            currentRow++;
+        }
+
+
+        //Adds up total games played
+        public void TotalGamesPlayed(int choice)
+        {
+            if (choice == 0)
+            {
+                Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+            }
+
         }
 
         //Set up wordle guess grid 
@@ -185,19 +274,28 @@ namespace Wordle
             await Navigation.PushAsync(setpage);
         }
 
-       /* private void UpdateSettings()
+        /* private void UpdateSettings()
+         {
+             Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
+             Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
+         }*/
+
+        private async void RuleBtn_Clicked(object sender, EventArgs e)
         {
-            Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
-            Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
-        }*/
+            await Navigation.PushAsync(new RulesPage());
+        }
+
+        private async void PlayerBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PlayerPage());
+        }
 
         protected override void OnNavigatedTo(NavigatedToEventArgs args)
         {
             //If the Navigation has come from the Welcome Page and the game has already started, reset the game
             if (allInitialised && !fromsettingspage)
             {
-
-                //InitialiseGrid();
+                initializeLetterGrid();
             }
             else if (fromsettingspage)
             {
@@ -349,6 +447,36 @@ namespace Wordle
 
             timer_lbl.Text = countdown.ToString();
 
+        }
+        
+         
+        public void PressEnter()
+        {
+            if (currentColumn != 5)
+                App.Current.MainPage.DisplayAlert("Uh-Oh", "Invalid Input!", "OK");
+
+            var correct = Rows[currentRow].checkLetters(correctAnswer);
+
+            if (correct)
+            {
+                if (cont == 0)
+                {
+                    TotalGamesPlayed(0);
+                    App.Current.MainPage.DisplayAlert("You Win!", "Excellent Work!", "OK");
+                }
+
+                return;
+            }
+
+            if (currentRow == 5)
+            {
+                App.Current.MainPage.DisplayAlert("Game Over!", "No more tries left!", "OK");
+            }
+            else
+            {
+                currentRow++;
+                currentColumn = 0;
+            }
         }*/
 
     }

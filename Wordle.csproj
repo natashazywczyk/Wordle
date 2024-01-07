@@ -53,6 +53,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="PlayerPage.xaml.cs">
+	    <DependentUpon>PlayerPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="RulesPage.xaml.cs">
+	    <DependentUpon>RulesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="SettingsPage.xaml.cs">
 	    <DependentUpon>SettingsPage.xaml</DependentUpon>
 	  </Compile>
@@ -62,6 +68,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="PlayerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="RulesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
