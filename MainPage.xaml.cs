@@ -181,6 +181,7 @@ namespace Wordle
 
 
 
+
         char[] correctAnswer;
 
         //Reads characters entered from keyboard and moves over to next column
