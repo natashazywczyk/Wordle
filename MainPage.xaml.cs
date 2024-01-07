@@ -234,17 +234,6 @@ namespace Wordle
             }
         }
 
-
-        //Adds up total games played
-        public void TotalGamesPlayed(int choice)
-        {
-            if (choice == 0)
-            {
-                Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
-            }
-
-        }
-
         //Set up wordle guess grid 
         private void initializeLetterGrid()
         {
