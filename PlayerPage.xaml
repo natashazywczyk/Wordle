@@ -9,13 +9,12 @@
     
     
     <VerticalStackLayout>
-            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Player1 Username" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Entry Text="{Binding Username1}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
 
             <Label Text="Player2 Username" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
             <Entry Text="{Binding Username2}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
-
         </Grid>
 
         <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn2_Clicked" WidthRequest="150"/>
