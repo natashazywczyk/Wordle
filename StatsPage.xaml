@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wordle.StatsPage"
              Title="StatsPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="#A468CF">
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Games Played" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Label Text="{Binding GamesPlayedTotal}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start"/>

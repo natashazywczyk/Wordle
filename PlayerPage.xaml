@@ -8,7 +8,7 @@
              x:DataType ="viewmodel:Player">
     
     
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="#A468CF">
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Player1 Username" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Entry Text="{Binding Username1}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>

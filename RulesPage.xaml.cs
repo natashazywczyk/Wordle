@@ -23,8 +23,10 @@ public partial class RulesPage : ContentPage
             VerticalTextAlignment = TextAlignment.Center,
             FontSize = 20
         };
+		BackgroundColor = Color.FromArgb("#A468CF");
 
-		Content = Info;
+
+        Content = Info;
 	}
 
 }
