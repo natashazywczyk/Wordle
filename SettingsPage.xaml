@@ -10,6 +10,7 @@
 
     <VerticalStackLayout BackgroundColor="#9F84B1">
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+            <!--Show Correct Colour and Incorrect Colour change settings-->
             <Label Text="Correct Space Colour" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Entry Text="{Binding CorrectSpace}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
 
@@ -17,6 +18,7 @@
             <Entry Text="{Binding IncorrectSpace}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
         </Grid>
 
+        <!--Saves information given by user as new settings-->
         <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn_Clicked" WidthRequest="150" BackgroundColor="#D4C5E3"/>
 
     </VerticalStackLayout>
