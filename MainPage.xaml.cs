@@ -24,7 +24,7 @@ namespace Wordle
         private int lettersClicked = 0;
         private int score = 0;
         private int letterEnteredCount = 0;
-        char[] GuessWord;
+        char[] GuessWord = { '-', '-', '-', '-', '-' };
         char[] lettersArray = { '-', '-', '-', '-', '-' };
         private int cont = 0;
         public int GamesPlayedTotal { get; set; }
