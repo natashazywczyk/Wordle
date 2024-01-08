@@ -45,17 +45,19 @@
                 <Label x:Name="timer_lbl" Text="60 " FontSize="30"/>
             </HorizontalStackLayout>
 
-            <Button x:Name="StartBtn" Text="Start" WidthRequest="100"
+            <Grid x:Name="ButtonGrid" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" ColumnDefinitions="*,*,*,*" RowDefinitions="*">
+                <Button x:Name="StartBtn" Text="Start" WidthRequest="100" Grid.Row="0" Grid.Column="0"
                       Clicked="StartBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
-            
-            <Button x:Name="PlayerBtn" Text="Player Info" WidthRequest="100"
+
+                <Button x:Name="PlayerBtn" Text="Player Info" WidthRequest="100" Grid.Row="0" Grid.Column="1"
                       Clicked="PlayerBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
-            
-            <Button x:Name="RuleBtn" Text="Rules" WidthRequest="100"
+
+                <Button x:Name="RuleBtn" Text="Rules" WidthRequest="100" Grid.Row="0" Grid.Column="2"
                       Clicked="RuleBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
 
-            <Button x:Name="StatBtn" Text="Stats" WidthRequest="100"
+                <Button x:Name="StatBtn" Text="Stats" WidthRequest="100" Grid.Row="0" Grid.Column="3"
                       Clicked="StatsBtn_Clicked" Margin="20" BackgroundColor="#DCB9FF"/>
+            </Grid>
 
             <Grid x:Name="wordGuessCharacters" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="10" ColumnSpacing="10" >
                 <Grid.RowDefinitions>
