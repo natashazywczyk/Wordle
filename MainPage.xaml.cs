@@ -40,16 +40,6 @@ namespace Wordle
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
 
-            Rows = new WordGuess[6]
-            {
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess(),
-            new WordGuess()
-            };
-
             correctAnswer = "GROWN".ToCharArray();
 
             GamesPlayedTotal = Preferences.Default.Get("playedGamesTotal", 0);
@@ -122,7 +112,7 @@ namespace Wordle
         public async void StartBtn_Clicked(object sender, EventArgs e)
          {
              StartBtn.Opacity = 1;
-             await StartBtn.FadeTo(0, 1000);
+             await StartBtn.FadeTo(0, 500);
 
              bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
 
