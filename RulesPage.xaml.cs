@@ -16,7 +16,7 @@ public partial class RulesPage : ContentPage
 			"\nIf you fail to guess it correctly in 6 turns, you lose!" +
 			"\n\nIf you have a letter that's included in the word, in the correct space, the box will turn green" +
 			"\nIf you guess a letter that's included in the word, but in the incorrect space, the box will turn yellow" +
-			"\nIncorrect answers will remain the same colour as before submitting your guess" +
+			"\nIncorrect answers will remain the same colour as it was before submitting your guess" +
 			"\n\nYou have 60 seconds to guess the correct word" +
 			"\n\n\nGood Luck!!!",
             HorizontalTextAlignment = TextAlignment.Center,
