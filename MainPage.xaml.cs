@@ -149,7 +149,7 @@ namespace Wordle
             else
                 set = new Settings();
             UpdateSettings();
-            //SetUpGrid();
+            initializeLetterGrid();
 
             allInitialised = true;
         }

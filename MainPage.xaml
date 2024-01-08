@@ -21,14 +21,6 @@
             <Color x:Key="IncorrectSpaceColour">#bbbf47</Color>
             <Color x:Key="LightFontColour">#f2f3f5</Color>
             <Color x:Key="DarkFontColour">#121212</Color>
-
-            <!--<Style x:Key="LetterSpace" TargetType="Button">
-                <Setter Property="TextColor" Value="WhiteSmoke"/>
-                <Setter Property="BorderColor" Value="SlateGrey"/>
-                <Setter Property="BorderWidth" Value="3"/>
-                <Setter Property="CornerRadius" Value="6"/>
-                <Setter Property="Padding" Value="10"/>
-            </Style>-->
         </ResourceDictionary>
     </ContentPage.Resources>
 
