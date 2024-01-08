@@ -42,8 +42,6 @@ namespace Wordle
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
 
-            correctAnswer = "GROWN".ToCharArray();
-
             GamesPlayedTotal = Preferences.Default.Get("playedGamesTotal", 0);
 
 
@@ -102,13 +100,6 @@ namespace Wordle
                         TimerFunction();
                     }
                 );
-        }
-
-        private string answer;
-        public string Answer
-        {
-            get { return answer; }
-            set { answer = value; }
         }
 
         //Start Button function asking player if they want to start
@@ -183,14 +174,11 @@ namespace Wordle
             }
         }
         
-        //Stores and loads random word selectedc from words.txt
+        //Stores and loads random word selected from words.txt
         private async void LoadRandomWord()
         {
             await PickRandomWord();
         }
-
-
-        char[] correctAnswer;
 
         //Reads characters entered from keyboard and moves over to next column
         private void charBtnClicked(object sender, EventArgs e)
