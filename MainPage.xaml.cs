@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Graphics.Text;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
@@ -295,7 +296,7 @@ namespace Wordle
         }
 
         //Check and validate if the characters entered matches that of the guess word
-        private char validateCharEntered()
+        private void validateCharEntered()
         {
             if(lettersArray.Length > 4)
             {
@@ -311,7 +312,7 @@ namespace Wordle
                     }
                 }
             }
-            return ' ';
+            return;
         }
         private Boolean CorrectAnswerGuessed()
         {

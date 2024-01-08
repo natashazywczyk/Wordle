@@ -8,6 +8,7 @@ public partial class RulesPage : ContentPage
 	{
 		InitializeComponent();
 
+		//Text to be displayed when rules page button is clicked
 		var Info = new Label
 		{
 			Text = "Welcome to Wordle!" +
