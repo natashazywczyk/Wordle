@@ -18,6 +18,7 @@ namespace Wordle
         private int dob1;
         private int dob2;
 
+        //Gets username of player1
         public string Username1
         {
             get => username1;
@@ -31,6 +32,7 @@ namespace Wordle
             }
         }
 
+        //Gets username of player 2
         public string Username2
         {
             get => username2;
@@ -44,6 +46,7 @@ namespace Wordle
             }
         }
 
+        //Gets DOB of player 1
         public int DOB1
         {
             get => dob1;
@@ -56,6 +59,7 @@ namespace Wordle
                 }
             }
         }
+        //Gets DOB of player 2
         public int DOB2
         {
             get => dob2;
@@ -70,7 +74,6 @@ namespace Wordle
         }
 
 
-
         //Constructor, default settings inside
         public Player()
         {
@@ -83,6 +86,7 @@ namespace Wordle
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        //Saves settings as a .json file
         public void SaveJson()
         {
             string jsonstring = JsonSerializer.Serialize(this);
