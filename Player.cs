@@ -15,8 +15,8 @@ namespace Wordle
 
         private string username1;
         private string username2;
-        private int DOB1;
-        private int DOB2;
+        private int dob1;
+        private int dob2;
 
         public string Username1
         {
@@ -43,6 +43,33 @@ namespace Wordle
                 }
             }
         }
+
+        public int DOB1
+        {
+            get => dob1;
+            set
+            {
+                if(dob1 != value)
+                {
+                    dob1 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public int DOB2
+        {
+            get => dob2;
+            set
+            {
+                if (dob2 != value)
+                {
+                    dob2 = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
 
         //Constructor, default settings inside
         public Player()
