@@ -16,6 +16,7 @@ namespace Wordle
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //Gets the user's total games played
         public int GamesPlayedTotal
         {
             get => gamesplayedtotal;
@@ -30,6 +31,7 @@ namespace Wordle
             }
         }
 
+        //Gets the user's total guesses 
         public int GuessesTotal
         {
             get => guessestotal;
@@ -42,6 +44,8 @@ namespace Wordle
                 }
             }
         }
+
+        //COnstructor, default values used
         public Stats()
         {
             GamesPlayedTotal = 0;
