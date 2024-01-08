@@ -113,7 +113,7 @@ namespace Wordle
              StartBtn.Opacity = 1;
              await StartBtn.FadeTo(0, 500);
 
-             bool choice = await DisplayAlert("Question,", "Would you like to start the game?", "Yes ", "No ");
+             bool choice = await DisplayAlert("Hello There!", "Would you like to start the game?", "Yes ", "No ");
 
              if (choice)
              {
