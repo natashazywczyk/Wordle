@@ -45,6 +45,7 @@ namespace Wordle
 
 
             SetUpTimers();
+            timer_lbl.IsVisible = false;
         }
    
         private void SetUpTimers()
@@ -254,6 +255,17 @@ namespace Wordle
                 currentColumn = 0;
                 letterEnteredCount = 0;
             }
+
+            //Display message when they guess the word correctly
+            if(lettersArray == GuessWord)
+            {
+                bool choice = await DisplayAlert("Congrats!", "You Won!\nWould you like to start the game?", "Yes ", "No ");
+                if (choice)
+                {
+                    WordleStart();
+                    Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+                }
+            }
             
             //Display a pop up to the user that the round is over
             if(currentRow > 4)
@@ -314,21 +326,6 @@ namespace Wordle
                     Grid.SetRow(letter, x);
                     Grid.SetColumn(letter, y);
 
-                    //Change the colour of the background in the grid boxes that match the letter pacement of the guess word
-                    if (lettersArray.Length > 4)
-                    {
-                        for (int i = 0; i < lettersArray.Length; i++)
-                        {
-                            if (lettersArray[i] != GuessWord[i])
-                            {
-                                letter.BackgroundColor = Colors.LightSteelBlue;
-                            }
-                            else
-                            {
-                                letter.BackgroundColor = (Color)Application.Current.Resources["CorrectSpaceColour"];
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -341,6 +338,7 @@ namespace Wordle
              countdown = 60;
              timer.Start();
              run = true;
+             timer_lbl.IsVisible = true;
              timer_lbl.Text = countdown.ToString();
          }
 
