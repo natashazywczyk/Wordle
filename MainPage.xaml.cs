@@ -176,6 +176,8 @@ namespace Wordle
                 {
                     var random = new Random();
                     string randWord = wordList[random.Next(wordList.Length)].ToUpper();
+
+                    //Changes the string into a char array
                     GuessWord = randWord.ToCharArray();
                 }
             }
