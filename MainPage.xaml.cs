@@ -28,7 +28,6 @@ namespace Wordle
         private int cont = 0;
         string[] allAvailableWords;
         public int GamesPlayedTotal { get; set; }
-        public WordGuess[] Rows { get; }
         public string filePath = "C:\\Zywczyk_Natasha_Wordle\\Wordle\\Resources\\Raw\\words.txt";
 
 
