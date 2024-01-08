@@ -267,6 +267,16 @@ namespace Wordle
                 }
             }
             
+            if(CorrectAnswerGuessed())
+            {
+                bool choice = await DisplayAlert("Congrats!", "You Won!\nWould you like to start the game?", "Yes ", "No ");
+                if (choice)
+                {
+                    WordleStart();
+                    Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+                }
+            }
+            
             //Display a pop up to the user that the round is over
             if(currentRow > 4)
             {
@@ -298,6 +308,27 @@ namespace Wordle
                 }
             }
             return ' ';
+        }
+        private Boolean CorrectAnswerGuessed()
+        {
+            int point = 0;
+            for (int i = 0; i < GuessWord.Length; i++)
+            {
+                char answerChar = GuessWord[i];
+                char guessChar = lettersArray[i];
+                if (answerChar == guessChar)
+                {
+                    point++;
+                }
+            }
+
+            //If the user has 5 "points", they win
+            if (point == 5)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         //Set up wordle guess grid 

@@ -12,7 +12,7 @@ public partial class SettingsPage : ContentPage
 
     private async void SaveBtn_Clicked(object sender, EventArgs e)
     {
-        // set.SaveJson();
+        set.SaveJson();
         await Navigation.PopAsync();
     }
 }
