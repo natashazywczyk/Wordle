@@ -168,7 +168,7 @@ namespace Wordle
         //Reads file and adds strings to an array, and chooses one at random
         private async Task PickRandomWord()
         {
-            //read in the words.txt and add the current word to guess to a variable for comparison
+            //read in the words.txt and add the current word to correct answer for the round, which guesses are then compared to this
             var folder = FileSystem.AppDataDirectory;
             var filePath = Path.Combine(folder, "words.txt");
 
