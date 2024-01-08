@@ -27,7 +27,6 @@ namespace Wordle
         char[] GuessWord;
         char[] lettersArray = { '-', '-', '-', '-', '-' };
         private int cont = 0;
-        string[] allAvailableWords;
         public int GamesPlayedTotal { get; set; }
         public string filePath = "words.txt";
 
