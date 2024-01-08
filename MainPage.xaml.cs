@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeKit;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
@@ -28,6 +29,7 @@ namespace Wordle
         char[] lettersArray = { '-', '-', '-', '-', '-' };
         private int cont = 0;
         public int GamesPlayedTotal { get; set; }
+        public int GuessesTotal { get; set; }  
         public string filePath = "words.txt";
 
 
@@ -42,6 +44,7 @@ namespace Wordle
             BindingContext = viewModel;
 
             GamesPlayedTotal = Preferences.Default.Get("playedGamesTotal", 0);
+            GuessesTotal = Preferences.Default.Get("guessTotal", ++GuessesTotal);
 
 
             SetUpTimers();
@@ -254,6 +257,8 @@ namespace Wordle
                 currentRow++;
                 currentColumn = 0;
                 letterEnteredCount = 0;
+
+                Preferences.Default.Set("guessTotal", ++GuessesTotal);
             }
 
             //Display message when they guess the word correctly
