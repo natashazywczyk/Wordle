@@ -231,6 +231,23 @@ namespace Wordle
                     Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
                 }
             }
+
+        }
+
+        //Check and validate if the characters entered matches that of the guess word
+        private char validateCharEntered()
+        {
+            if(lettersArray.Length > 4)
+            {
+                for(int i = 0; i < lettersArray.Length; i++)
+                {
+                    if(lettersArray[i] != GuessWord[i])
+                    {
+                        
+                    }
+                }
+            }
+            return ' ';
         }
 
         //Set up wordle guess grid 
@@ -258,6 +275,22 @@ namespace Wordle
                     wordGuessCharacters.Children.Add(letter);
                     Grid.SetRow(letter, x);
                     Grid.SetColumn(letter, y);
+
+                    //Change the colour of the background in the grid boxes that match the letter pacement of the guess word
+                    if (lettersArray.Length > 4)
+                    {
+                        for (int i = 0; i < lettersArray.Length; i++)
+                        {
+                            if (lettersArray[i] != GuessWord[i])
+                            {
+                                letter.BackgroundColor = Colors.LightSteelBlue;
+                            }
+                            else
+                            {
+                                letter.BackgroundColor = (Color)Application.Current.Resources["CorrectSpaceColour"];
+                            }
+                        }
+                    }
                 }
             }
         }
