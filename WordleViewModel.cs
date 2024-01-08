@@ -41,12 +41,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     public bool IsNotBusy => !isBusy;
 
 
-    public void colourCorrect(char[] answer)
-    {
-        
-    }
-
-
 
 }
 
