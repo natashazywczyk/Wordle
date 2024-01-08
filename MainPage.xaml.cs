@@ -24,6 +24,7 @@ namespace Wordle
         private int lettersClicked = 0;
         private int score = 0;
         private int letterEnteredCount = 0;
+        char[] GuessWord;
         char[] lettersArray = { '-', '-', '-', '-', '-' };
         private int cont = 0;
         string[] allAvailableWords;
@@ -36,6 +37,8 @@ namespace Wordle
         public MainPage()
         {
             InitializeComponent();
+            LoadRandomWord();
+
             viewModel = new WordleViewModel();
             BindingContext = viewModel;
 
@@ -172,7 +175,8 @@ namespace Wordle
                 if (wordList.Length > 0)
                 {
                     var random = new Random();
-                    string currentWordToGuess = wordList[random.Next(wordList.Length)].ToUpper();
+                    string randWord = wordList[random.Next(wordList.Length)].ToUpper();
+                    GuessWord = randWord.ToCharArray();
                 }
             }
         }
