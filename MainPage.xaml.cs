@@ -215,6 +215,10 @@ namespace Wordle
         //Move to next row, if row > 5, output that they have no more tries left for the round
         private async void enterBtnClicked(object sender, EventArgs e)
         {
+            if (letterEnteredCount < 4)
+                return;
+
+            //If the column is at 5 letters, it will then allow the user to move down
             if (letterEnteredCount > 4)
             {
                 currentRow++;
@@ -222,6 +226,7 @@ namespace Wordle
                 letterEnteredCount = 0;
             }
             
+            //Display a pop up to the user that the round is over
             if(currentRow > 4)
             {
                 bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of guesses\nWould you like to start the game?", "Yes ", "No ");
@@ -244,6 +249,10 @@ namespace Wordle
                     if(lettersArray[i] != GuessWord[i])
                     {
                         
+                    }
+                    else
+                    {
+
                     }
                 }
             }
