@@ -219,7 +219,7 @@ namespace Wordle
             }
         }
 
-        //Move to next row
+        //Move to next row, if row > 5, output that they have no more tries left for the round
         private async void enterBtnClicked(object sender, EventArgs e)
         {
             if (letterEnteredCount > 4)
