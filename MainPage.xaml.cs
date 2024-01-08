@@ -28,7 +28,7 @@ namespace Wordle
         private int cont = 0;
         string[] allAvailableWords;
         public int GamesPlayedTotal { get; set; }
-        public string filePath = "C:\\Zywczyk_Natasha_Wordle\\Wordle\\Resources\\Raw\\words.txt";
+        public string filePath = "words.txt";
 
 
         private System.Timers.Timer timer;
