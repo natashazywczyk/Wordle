@@ -17,8 +17,6 @@ public partial class WordleViewModel : INotifyPropertyChanged
     WordleViewModel wordleModel;
     HttpClient httpClient;
     private bool isBusy;
-    private int rowNum;
-    private int colNum;
 
     //PropertyChanged method
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
