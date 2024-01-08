@@ -24,7 +24,7 @@
             <Entry Text="{Binding DOB2}" Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
         </Grid>
         
-        <!--To save new settings-->
+        <!--To save new player information-->
         <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn2_Clicked" WidthRequest="150" BackgroundColor="#DCB9FF"/>
 
     </VerticalStackLayout>
