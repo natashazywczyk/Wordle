@@ -150,6 +150,35 @@ namespace Wordle
             allInitialised = true;
         }
 
+        //Checks if playerinfo.json exists
+        private async Task InitialiseObjectVariables2()
+        {
+            //Check to see if a settings .json already exists
+            string playerinfofilename = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "playerinfo.json");
+            if (File.Exists(playerinfofilename))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(playerinfofilename))
+                    {
+                        string jsonstring = reader.ReadToEnd();
+                        player = JsonSerializer.Deserialize<Player>(jsonstring);
+                    }
+                }
+                catch
+                {
+                    player = new Player();
+                }
+            }
+            //If it doesnt:
+            else
+                player = new Player();
+            UpdatePlayerInfo();
+            initializeLetterGrid();
+
+            allInitialised = true;
+        }
+
         //Reads file and adds strings to an array, and chooses one at random
         private async Task PickRandomWord()
         {
@@ -328,6 +357,14 @@ namespace Wordle
         {
              Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
              Resources["IncorrectSpaceColour"] = Color.FromArgb(set.IncorrectSpace);
+        }
+
+        private void UpdatePlayerInfo()
+        {
+            Resources["Player1Username"] = player.Username1;
+            Resources["Player1DOB"] = player.DOB1;
+            Resources["Player2Username"] = player.Username2;
+            Resources["Player2DOB"] = player.DOB2;
         }
 
         //To go to rule page
