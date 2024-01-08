@@ -88,12 +88,16 @@ namespace Wordle
 
             run = false;
 
-            bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of time\nWould you like to start the game?", "Yes ", "No ");
-            if (choice)
+            if (countdown == 0)
             {
-                WordleStart();
-                Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+                bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of time\nWould you like to start the game?", "Yes ", "No ");
+                if (choice)
+                {
+                    WordleStart();
+                    Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+                }
             }
+            
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -238,11 +242,12 @@ namespace Wordle
                 letterEnteredCount = 0;
             }
             
-            if(currentRow > 5)
+            if(currentRow > 4)
             {
                 bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of guesses\nWould you like to start the game?", "Yes ", "No ");
                 if (choice)
                 {
+                    timer.Stop();
                     WordleStart();
                     Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
                 }
