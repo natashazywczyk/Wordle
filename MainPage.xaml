@@ -19,8 +19,10 @@
         <ResourceDictionary>
             <Color x:Key="CorrectSpaceColour">#4dba47</Color>
             <Color x:Key="IncorrectSpaceColour">#bbbf47</Color>
-            <Color x:Key="LightFontColour">#f2f3f5</Color>
-            <Color x:Key="DarkFontColour">#121212</Color>
+            <x:String x:Key="Player1Username"></x:String>
+            <x:String x:Key="Player2Username"></x:String>
+            <x:String x:Key="Player1DOB"></x:String>
+            <x:String x:Key="Player2DOB"></x:String>
         </ResourceDictionary>
     </ContentPage.Resources>
 
