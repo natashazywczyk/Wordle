@@ -71,6 +71,7 @@ namespace Wordle
             }
         }
 
+        //Ends timer once countdown reaches 0 and asks the player if they wishb to play again
         private async void End()
         {
             timer.Stop();
@@ -121,6 +122,7 @@ namespace Wordle
                  Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
              }
 
+             //Hides buttons after start is pressed, has the keyboard appear
              PlayerBtn.IsVisible = false;
              RuleBtn.IsVisible = false;
              StatBtn.IsVisible = false;
@@ -146,10 +148,11 @@ namespace Wordle
                     set = new Settings();
                 }
             }
+            //If it doesnt:
             else
                 set = new Settings();
-            UpdateSettings();
-            initializeLetterGrid();
+                UpdateSettings();
+                initializeLetterGrid();
 
             allInitialised = true;
         }
@@ -161,8 +164,10 @@ namespace Wordle
             var folder = FileSystem.AppDataDirectory;
             var filePath = Path.Combine(folder, "words.txt");
 
+            //Checks if the file is within the project
             if (File.Exists(filePath))
             {
+                //Reads words into an array of strings
                 var wordList = await File.ReadAllLinesAsync(filePath);
                 if (wordList.Length > 0)
                 {
@@ -186,10 +191,11 @@ namespace Wordle
         {
             if (sender is Button button)
             {
+                //Checks if lettersEntered is greater than four
                 if (letterEnteredCount > 4)
                     return;
 
-                
+                //Array of which the letters are going to be stored in an array
                 char selectedLetter = button.Text.Length > 0 ? button.Text[0] : 'A';
                 lettersArray[currentColumn] = selectedLetter;
 
@@ -201,6 +207,7 @@ namespace Wordle
                         break;
                     }
                 }
+                //Moves to next row while adding to letterEnteredCount
                 currentColumn++;
                 letterEnteredCount++;
 
@@ -281,6 +288,7 @@ namespace Wordle
             await Navigation.PushAsync(setpage);
         }
 
+        //Updates values inputed in settings
         private void UpdateSettings()
         {
              Resources["CorrectSpaceColour"] = Color.FromArgb(set.CorrectSpace);
