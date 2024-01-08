@@ -247,7 +247,6 @@ namespace Wordle
                 bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of guesses\nWould you like to start the game?", "Yes ", "No ");
                 if (choice)
                 {
-                    timer.Stop();
                     WordleStart();
                     Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
                 }
@@ -288,6 +287,7 @@ namespace Wordle
          {
              initializeLetterGrid();
 
+             countdown = 60;
              timer.Start();
              run = true;
              timer_lbl.Text = countdown.ToString();
