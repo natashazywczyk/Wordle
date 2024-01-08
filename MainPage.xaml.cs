@@ -165,40 +165,29 @@ namespace Wordle
             allInitialised = true;
         }
 
-        //Reads file and adds strings to an array, then converting each string into an array of characters
-        public static string[] ReadFileAndConvertToChars(string filePath)
+        //Reads file and adds strings to an array, and chooses one at random
+        private async Task PickRandomWord()
         {
-            try
+            //read in the words.txt and add the current word to guess to a variable for comparison
+            var folder = FileSystem.AppDataDirectory;
+            var filePath = Path.Combine(folder, "words.txt");
+
+            if (File.Exists(filePath))
             {
-                string[] lines = File.ReadAllLines(filePath);
-                string[] wordsArray = new string[lines.Length];
-
-                for (int i = 0; i < lines.Length; i++)
+                var wordList = await File.ReadAllLinesAsync(filePath);
+                if (wordList.Length > 0)
                 {
-                    string[] words = lines[i].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    var random = new Random();
+                    string currentWordToGuess = wordList[random.Next(wordList.Length)].ToUpper();
                 }
-
-                List<char[]> WordListCharaters = new List<char[]>();
-
-                foreach (string word in wordsArray)
-                {
-                    // Convert each word to a char array
-                    char[] characters = word.ToCharArray();
-
-                    // Add the char array to the list of character arrays
-                    WordListCharaters.Add(characters);
-                }
-
-               // char[][] allCharactersArrays = WordListCharacters.ToArray();
-
-                return wordsArray;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error reading the file: {ex.Message}");
             }
         }
-
+        
+        //Stores and loads random word selectedc from words.txt
+        private async void LoadRandomWord()
+        {
+            await PickRandomWord();
+        }
         char[] correctAnswer;
 
         //Reads characters entered from keyboard and moves over to next column
