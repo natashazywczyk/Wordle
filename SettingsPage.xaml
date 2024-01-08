@@ -11,13 +11,13 @@
     <VerticalStackLayout BackgroundColor="#9F84B1">
         <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
             <Label Text="Correct Space Colour" Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
-            <Entry Text="{Binding CorrectSpace}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start"/>
+            <Entry Text="{Binding CorrectSpace}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
 
             <Label Text="Incorrect Space Colour" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
-            <Entry Text="{Binding IncorrectSpace}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start"/>
+            <Entry Text="{Binding IncorrectSpace}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" WidthRequest="100"/>
         </Grid>
 
-        <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn_Clicked" WidthRequest="150" BackgroundColor="#DCB9FF"/>
+        <Button HorizontalOptions="Center" Text="Save" Clicked="SaveBtn_Clicked" WidthRequest="150" BackgroundColor="#D4C5E3"/>
 
     </VerticalStackLayout>
 </ContentPage>
