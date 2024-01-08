@@ -229,13 +229,23 @@ namespace Wordle
         }
 
         //Move to next row
-        private void enterBtnClicked(object sender, EventArgs e)
+        private async void enterBtnClicked(object sender, EventArgs e)
         {
             if (letterEnteredCount > 4)
             {
                 currentRow++;
                 currentColumn = 0;
                 letterEnteredCount = 0;
+            }
+            
+            if(currentRow > 5)
+            {
+                bool choice = await DisplayAlert("Uh-Oh,", "Looks like you ran out of guesses\nWould you like to start the game?", "Yes ", "No ");
+                if (choice)
+                {
+                    WordleStart();
+                    Preferences.Default.Set("playedGamesTotal", ++GamesPlayedTotal);
+                }
             }
         }
 
